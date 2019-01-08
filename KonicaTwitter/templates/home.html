@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="col-md-4">
+      <div class="content-section">
+        <h3>Twitter API</h3>
+        <p class='text-muted'> Selection criteria to filter tweets
+
+          <!-- Side content section with filter criteria to get tweets -->
+          <form method="POST" action="">
+              {{ form.hidden_tag() }}
+              <fieldset class="form-group">
+
+                  <!-- Number of tweets to display -->
+                  <div class="form-group required">
+                      {{ form.num_tweets.label(class="form-control-label") }}
+                      <span class="required" style='color:red'>*</span>
+                      {% if form.num_tweets.errors %}
+                          {{ form.num_tweets(class="form-control form-control-lg is-invalid") }}
+                          <div class="invalid-feedback">
+                              {% for error in form.num_tweets.errors %}
+                                  <span>{{ error }}</span>
+                              {% endfor %}
+                          </div>
+                      {% else %}
+                          {{ form.num_tweets(class="form-control form-control-lg") }}
+                      {% endif %}
+                  </div>
+
+                  <!-- Twitter user name -->
+                  <div class="form-group">
+                      {{ form.twitter_username.label(class="form-control-label") }}
+
+                      {% if form.twitter_username.errors %}
+                          {{ form.twitter_username(class="form-control form-control-lg is-invalid") }}
+                          <div class="invalid-feedback">
+                              {% for error in form.twitter_username.errors %}
+                                  <span>{{ error }}</span>
+                              {% endfor %}
+                          </div>
+                      {% else %}
+                          {{ form.twitter_username(class="form-control form-control-lg") }}
+                      {% endif %}
+                  </div>
+
+                  <!-- Search term -->
+                  <div class="form-group">
+                      {{ form.search_term.label(class="form-control-label") }}
+
+                      {% if form.search_term.errors %}
+                          {{ form.search_term(class="form-control form-control-lg is-invalid") }}
+                          <div class="invalid-feedback">
+                              {% for error in form.search_term.errors %}
+                                  <span>{{ error }}</span>
+                              {% endfor %}
+                          </div>
+                      {% else %}
+                          {{ form.search_term(class="form-control form-control-lg") }}
+                      {% endif %}
+                  </div>
+
+                  <!-- Location string -->
+                  <div class="form-group">
+                      {{ form.location_string.label(class="form-control-label") }}
+
+                      {% if form.location_string.errors %}
+                          {{ form.location_string(class="form-control form-control-lg is-invalid") }}
+                          <div class="invalid-feedback">
+                              {% for error in form.location_string.errors %}
+                                  <span>{{ error }}</span>
+                              {% endfor %}
+                          </div>
+                      {% else %}
+                          {{ form.location_string(class="form-control form-control-lg") }}
+                      {% endif %}
+                  </div>
+
+                  <!-- Get Tweets around me -->
+                  <div class="form-check" onload="setLocateMe_onClick()">
+
+                    {{ form.locate_me(class="form-check-input") }}
+                    {{ form.locate_me.label(class="form-check-label") }}
+
+                  </div>
+
+              </fieldset>
+              <div class="form-group">
+                  {{ form.get_tweets(class="btn btn-outline-info") }}
+              </div>
+          </form>
+
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <h3>How to use</h3>
+        <p class='text-muted'>
+          Fill in the filters on the side bar and click ‘Get tweets’ to retrieve tweets from Twitter. Possible criteria:
+
+          <ol>
+            <li>
+              <strong class="text-primary">Number of tweets:</strong>
+              <strong class="text-danger">(Required)</strong>
+              The number of tweets to get from the query. It must be a number in [1-200]. An error message will be displayed if the input is missing or if the number is out of bounds.
+            </li>
+            <li>
+              <strong class="text-primary">Twitter username(s):</strong>
+              <strong class="text-secondary">(Optional)</strong>
+              A list of comma separate (,) usernames. For example: ‘username_1,username_2’. If username(s) are specified, no search term, or location string can be specified. An error message will be displayed if the format is incorrect or if any user in the list is not a valid Twitter user.
+            </li>
+            <li>
+              <strong class="text-primary">Search term:</strong>
+              <strong class="text-secondary">(Optional)</strong>
+              Search term criteria to filter the tweets. If a search term is specified, no Twitter username(s) can be specified.
+            </li>
+            <li>
+              <strong class="text-primary">Location string:</strong>
+              <strong class="text-secondary">(Optional)</strong>
+              A location string of the format latitude,longitude,radius. For example: for Bolton, CT: ‘41.7797494,-72.4183382,50km’. It accepts radius in ‘km’ and ‘mi’. If a Location string is specified, no Twitter username(s) can be specified. An error message will be displayed if the format is incorrect or if latitude, longitude or radius is incorrect.
+            </li>
+            <li>
+              <strong class="text-primary">Locate me:</strong>
+              It fills in the location string with the current location
+            </li>
+          </ol>
+
+          <strong class="text-danger">*</strong>At list one of the three criteria: Twitter username(s), Search term or Location string must be filled in to get tweets <strong class="text-danger">(Required)</strong>
+
+
+          </p>
+    </div>
+
+    <script type="text/javascript" src="/static/home.js"></script>
+
+{% endblock content %}

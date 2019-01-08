@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+    <title>Konica Minolta</title>
+
+</head>
+
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="/">Konica Minolta - Twitter app for job application for WPH Application Engineer/Web Application Engineer</a>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main" class="container">
+      <div class="row">
+          {% block content %}{% endblock %}
+      </div>
+    </main>
+
+
+<footer class="site-header">
+      <nav class="navbar navbar-expand-md bg-steel fixed-bottom">
+        <div class="container">
+          <div>
+            <span class="label">Manuel Enrique Hidalgo Murillo</span>
+            <a href="https://www.linkedin.com/in/manhid">
+              <img border="0" alt="LinkedIn" src="/static/inLogo.png" width="20" height="20">
+            </a>
+
+          </div>
+          <span class="label">manuelehidalgom@gmail.com</span>
+          <span class="label">Cell:+1 (585) 360-9437</span>
+          <a class="mr-1" >@ 2019 Manuel Hidalgo </a>
+        </div>
+      </nav>
+</footer>
+
+</body>
+</html>

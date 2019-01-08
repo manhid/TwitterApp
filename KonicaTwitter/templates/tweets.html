@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="col-md-4">
+      <div class="content-section">
+        <h3>Twitter API</h3>
+
+          <!-- Side content section to go back to home-->
+          <form method="POST" action="">
+            <div class="form-group">
+
+              <h5><a class="text-dark" >Tweet filters</a></h5>
+              <strong class="text-primary"> Max. number of tweets: </strong>
+              <span class=""> {{ tweets_filter.num_tweets }} </span> </p>
+              <strong class="text-primary"> Username(s): </strong>
+              <span class=""> {{ tweets_filter.twitter_username }} </span> </p>
+              <strong class="text-primary"> Search term: </strong>
+              <span class=""> {{ tweets_filter.search_term }} </span> </p>
+              <strong class="text-primary"> Location string: </strong>
+              <span class=""> {{ tweets_filter.location_string }} </span> </p>
+
+              <a class="btn btn-outline-info" href="{{ url_for('home') }}">New Query</a>
+            </div>
+          </form>
+
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-8 content-section">
+      {% for tweet in tweets_list %}
+          <article class="media content-section card">
+            <div class="media-body">
+              <div class="article-metadata">
+                <a class="mr-2 text-primary">{{ tweet.id }}</a>
+                <small class="text-muted">{{ tweet.date }}</small>
+              </div>
+              <h5><a class="article-title text-dark" >{{ tweet.tweet }}</a></h5>
+              <strong class="article-content text-primary"> Likes: </strong>
+              <span class="article-content"> {{ tweet.likes }} </span>
+              <strong class="article-content text-primary"> Source: </strong>
+              <span class="article-content"> {{ tweet.source }} </span>
+            </div>
+          </article>
+      {% endfor %}
+    </div>
+{% endblock content %}
