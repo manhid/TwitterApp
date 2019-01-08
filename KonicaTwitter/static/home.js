@@ -69,9 +69,3 @@ function set_disable_onClick() {
   disable_search_term();
   disable_twitter_username();
 } window.onload = set_disable_onClick;
-
-// Delete tweets on user input
-function clear_tweet(elementID)
-{
-    document.getElementById(elementID).innerHTML = "";
-}
