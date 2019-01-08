@@ -84,3 +84,7 @@ a.article-title:hover {
   transition: 0.3s;
   border-radius: 5px; /* 5px rounded corners */
 }
+
+.delete-tweet {
+  width: 100%;
+}

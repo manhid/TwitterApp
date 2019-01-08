@@ -54,6 +54,7 @@ def home():
         else:
             df = twitter_fetcher.search_tweets()
 
+        indx = 0
         for index, row in df.iterrows():
             tweet = {
                 'tweet': row['tweets'],
@@ -61,8 +62,10 @@ def home():
                 'len': row['len'],
                 'date': row['date'],
                 'source': row['source'],
-                'likes': row['likes']
+                'likes': row['likes'],
+                'indx': str(indx)
             }
+            indx += 1
             tweets_list.append(tweet)
 
         return redirect(url_for('tweets'))

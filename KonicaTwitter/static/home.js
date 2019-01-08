@@ -60,12 +60,18 @@ function disable_twitter_username() {
 }
 
 // Allow numbers only in num_tweets
-function numbersOnly() {
+function numbers_only() {
   num_tweets.type = "number";
-}  numbersOnly();
+}  numbers_only();
 
 // When clicking on get_tweets and not triggering POST due to erros in form to keep consitancy on disabled items
 function set_disable_onClick() {
   disable_search_term();
   disable_twitter_username();
 } window.onload = set_disable_onClick;
+
+// Delete tweets on user input
+function clear_tweet(elementID)
+{
+    document.getElementById(elementID).innerHTML = "";
+}

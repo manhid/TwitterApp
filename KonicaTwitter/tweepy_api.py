@@ -67,7 +67,7 @@ class TwitterFetcher():
 
     def search_tweets(self):
         # Get num_tweets that match search_term criteria and return in a dataframe
-        tweets = self.api.search(q=self.search_term+' -filter:retweets', count=(self.num_tweets), geocode=self.location_string, tweet_mode="extended")
+        tweets = self.api.search(q=self.search_term + ' -filter:retweets', count=(self.num_tweets), geocode=self.location_string, tweet_mode="extended")
         df = self.tweet_handler.tweets_to_dataframe(tweets)
         return df
 

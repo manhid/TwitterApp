@@ -28,11 +28,15 @@
 
     <div class="col-md-8 content-section">
       {% for tweet in tweets_list %}
+        <div id="div{{ tweet.indx }}">
           <article class="media content-section card">
-            <div class="media-body">
+            <div class="media-body delete-tweet">
               <div class="article-metadata">
                 <a class="mr-2 text-primary">{{ tweet.id }}</a>
                 <small class="text-muted">{{ tweet.date }}</small>
+                <button type="button" class="close" arial-label="Close" onclick="clear_tweet('div{{ tweet.indx }}')">
+                  <span arial-hidden="true">&times;</span>
+                </button>
               </div>
               <h5><a class="article-title text-dark" >{{ tweet.tweet }}</a></h5>
               <strong class="article-content text-primary"> Likes: </strong>
@@ -41,6 +45,9 @@
               <span class="article-content"> {{ tweet.source }} </span>
             </div>
           </article>
+        </div>
       {% endfor %}
     </div>
+
+    <script type="text/javascript" src="/static/tweets.js"></script>
 {% endblock content %}
