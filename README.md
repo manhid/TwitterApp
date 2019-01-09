@@ -1,5 +1,6 @@
 ## Personal Information
 	Manuel Hidalgo
+	Twitter app for job application for WPH Application Engineer/Web Application Engineer
 
 	www.linkedin.com/in/manhid
 	manuelehidalgom@gmail.com
