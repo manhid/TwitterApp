@@ -25,7 +25,7 @@
 ### How to use/test provided application
 	To run the application, install Python and the required libraries in the above section. Then run the command ‘python run.py’ to run the application and open localhost in the browser.
 
-	In file KonicaTwitter/tweepy_api.py in lines 9-12 fill in the user keys to connect the Twitter app.
+	In file KonicaTwitter/tweepy_api.py in lines '9-12' fill in the user keys to connect to the Twitter app.
 
 	The home page provides a view to fill in the criteria to filter tweets. Possible criteria::
 		1.	Number of tweets: (Required) The number of tweets to get from the query. Must be a number between [1-200]. An error message will be displayed if the input is missing or if the number is out of bounds.
