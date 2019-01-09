@@ -1,3 +1,10 @@
+## Personal Information
+	Manuel Hidalgo
+
+	www.linkedin.com/in/manhid
+	manuelehidalgom@gmail.com
+	+1 (585) 360-9437
+
 ## Twitter App
 	I chose to develop the Twitter app because I was curious about working with social media APIs, extracting data and displaying/analyzing the results.
 
