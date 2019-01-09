@@ -91,11 +91,13 @@ class TwitterFetcher():
 
     def is_valid_user(self, user_id):
         # determine wether the specified user is valid
+        is_valid = False
         try:
             user = self.api.get_user(id=user_id)
-            is_valid = True
+            if not user.protected:
+                is_valid = True
 
-        except Exception:
+        except tweepy.TweepError:
             is_valid = False
 
         return is_valid
