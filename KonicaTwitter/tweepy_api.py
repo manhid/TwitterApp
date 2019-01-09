@@ -107,7 +107,7 @@ class TwitterFetcher():
             if not user.protected:
                 is_valid = True
 
-        except tweepy.TweepError:
+        except Exception:
             is_valid = False
 
         return is_valid
