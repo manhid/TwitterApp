@@ -1,6 +1,5 @@
 from tweepy import OAuthHandler
-from tweepy.streaming import StreamListener
-from tweepy import Stream
+from tweepy import Cursor
 from tweepy import API
 
 import pandas as pd
@@ -67,8 +66,17 @@ class TwitterFetcher():
 
     def search_tweets(self):
         # Get num_tweets that match search_term criteria and return in a dataframe
-        tweets = self.api.search(q=self.search_term + ' -filter:retweets', count=(self.num_tweets), geocode=self.location_string, tweet_mode="extended")
+        #tweets = self.api.search(q=self.search_term + ' -filter:retweets', count=self.num_tweets, geocode=self.location_string, tweet_mode="extended")
+
+        tweets = []
+        for tweet in Cursor(self.api.search,
+                            q=self.search_term + ' -filter:retweets',
+                            geocode=self.location_string,
+                            tweet_mode="extended").items(self.num_tweets):
+            tweets.append(tweet)
+
         df = self.tweet_handler.tweets_to_dataframe(tweets)
+        df = df.head(self.num_tweets)
         return df
 
     def get_user_timeline(self):
@@ -77,7 +85,9 @@ class TwitterFetcher():
 
         for user_id in self.users:
             # Loop over users to fetch tweets
-            tweets = self.api.user_timeline(id=user_id, count=self.num_tweets, tweet_mode="extended")
+            tweets = []
+            for tweet in Cursor(self.api.user_timeline, id=user_id, tweet_mode="extended").items(self.num_tweets):
+                tweets.append(tweet)
 
             # Save tweets to df and filter
             df2 = self.tweet_handler.tweets_to_dataframe(tweets)
