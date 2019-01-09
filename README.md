@@ -1,9 +1,9 @@
-### Twitter App
+## Twitter App
 	I chose to develop the Twitter app because I was curious about working with social media APIs, extracting data and displaying/analyzing the results.
 
 	The application is implemented in Python using the Flask framework for web development and the Tweepy library to connect with the Twitter API. The backend language and framework were selected because I wanted to take the opportunity to learn web app development in Python since most of my experience is with C# and .NET.
 
-## Required OS and libraries
+### Required OS and libraries
 	OS: The application was developed using Windows 10
 
 	Software/Libraries required:
@@ -14,7 +14,7 @@
 		● pandas    ( pip install pandas  )
 		● numpy    ( pip install numpy  )
 
-## How to use/test provided application
+### How to use/test provided application
 	To run the application, install Python and the required libraries in the above section. Then run the command ‘python run.py’ to run the application and open localhost in the browser.
 
 	The home page provides a view to fill in the criteria to filter tweets. Possible criteria::
