@@ -6,10 +6,10 @@ import pandas as pd
 import numpy as np
 
 # User credentials to access Twitter API
-ACCESS_TOKEN = "375159246-FmjmvszM2hesqmVarM0v4LugGGnLXjX7sHv4eWBC"
-ACCESS_TOKEN_SECRET = "sOh6SGWshgVL1isKLCh8ndMzq41IMZDHWARx96OsWmiLE"
-CONSUMER_KEY = "VYD7IRzG0JIyGjjKQu5qocgAC"
-CONSUMER_SECRET = "HV10X3hvwyjcpZ2quwkOjo1un4gyeWQhPxuRKunCACOwAN55Nh"
+ACCESS_TOKEN = "---"
+ACCESS_TOKEN_SECRET = "---"
+CONSUMER_KEY = "---"
+CONSUMER_SECRET = "---"
 
 
 class TwitterAutheticator():
